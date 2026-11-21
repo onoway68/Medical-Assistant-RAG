@@ -1,106 +1,92 @@
-[MEDICAL_ASSISTANT_RAG_README_TEMPLATE.md](https://github.com/user-attachments/files/29110702/MEDICAL_ASSISTANT_RAG_README_TEMPLATE.md)
-# Medical Assistant — RAG-Based Healthcare Knowledge Retrieval
+# Medical Assistant-RAG — Healthcare Knowledge Retrieval Research
 
-**RAG-based AI prototype for clinical knowledge retrieval using trusted medical manuals and context-grounded response generation.**
-
----
+**Research and design portfolio | Olanrewaju Onala, MBBS**
 
 ## Overview
 
-This project develops a Retrieval-Augmented Generation (RAG) medical assistant prototype designed to help healthcare professionals access trusted medical knowledge more efficiently.
+Medical Assistant-RAG explores retrieval-augmented generation (RAG) as a way to support access to medical reference information. The design combines retrieval of relevant source passages with language-model response generation and human review.
 
-The system is intended for educational and decision-support exploration only. It is not a substitute for professional clinical judgment.
+**Current evidence status:** This public repository documents the research objective, proposed architecture, use cases, and safety requirements. An executable end-to-end pipeline, validated clinical-question dataset, and reproducible evaluation results **have not been verified in this repository**. Do not interpret the proposed workflow below as a deployed or clinically validated system.
 
----
+**Use boundary:** Educational and research purposes only. Not for autonomous diagnosis, treatment, prescribing, triage, or patient-care decisions.
 
-## Problem
+## Research question
 
-Healthcare professionals often face:
-- Information overload
-- Time pressure during clinical decision-making
-- Difficulty searching long medical manuals
-- Need for quick access to reliable drug, diagnostic, and treatment information
-- Need for context-grounded answers rather than unsupported AI speculation
+Can a source-grounded retrieval workflow make medical reference answers more traceable and reviewable than unsupported language-model generation, while preserving uncertainty and clinician oversight?
 
----
+This is a proposed investigation, not a demonstrated comparative result.
 
-## Objective
+## Proposed workflow
 
-Build a RAG workflow that can:
-- Retrieve relevant medical manual content
-- Inject retrieved context into a structured prompt
-- Generate a response grounded in the retrieved medical context
-- Support clinical question-answering use cases
-- Demonstrate safer design patterns for healthcare GenAI
+```text
+Authorized medical reference documents
+                |
+         Parse and chunk
+                |
+      Index / retrieval layer
+                |
+     User's research question
+                |
+       Retrieve source passages
+                |
+     Compose grounded LLM prompt
+                |
+       Draft answer + citations
+                |
+  Evidence checks and human review
+```
 
----
+The diagram is a **design proposal**, not an implementation claim.
 
-## Example Use Cases
+## Proposed evaluation
 
-- Diagnostic assistance
-- Drug information retrieval
-- First-line treatment options
-- Specialty knowledge lookup
-- Critical care protocol support
-- Medical manual search assistance
+| Dimension | Example assessment | Status |
+| --- | --- | --- |
+| Retrieval relevance | Relevant passages found for synthetic reference questions | Planned |
+| Groundedness | Claims supported by retrieved source excerpts | Planned |
+| Citation accuracy | Citation links resolve to supporting passages | Planned |
+| Abstention | Unsupported or ambiguous questions trigger uncertainty/abstention | Planned |
+| Safety | Tests for unsafe recommendations, outdated sources, and missing context | Planned |
+| Reproducibility | Pinned dependencies, synthetic fixtures, and repeatable commands | Planned |
 
----
+No quantitative performance or clinical safety result is claimed.
 
-## Methods
+## Research use cases
 
-- Document ingestion
-- Text chunking
-- Embedding or retrieval workflow
-- Context retrieval
-- Prompt template design
-- LLM response generation
-- Answer-quality review concepts
-- Human-in-the-loop review
+Potential future research scenarios include medical manual search, drug-reference lookup, guideline navigation, and educational question answering. Any clinical decision-support use would require separate source licensing, independent evaluation, governance, clinical validation, and authorization.
 
----
+## Implementation evidence needed
 
-## Safety Position
+To substantiate an executable prototype, future changes should add:
 
-This project is a prototype and should not be used for autonomous medical diagnosis or treatment.
+1. Source files or a reproducible notebook with dependency versions.
+2. Authorized reference-data provenance and licensing information; no patient data.
+3. Synthetic test questions and expected evidence passages.
+4. Retrieval, citation, groundedness, and abstention evaluations.
+5. Instructions to reproduce results and an explicit limitations report.
+6. Human-review and safety escalation procedures before any real-world use.
 
-Healthcare GenAI systems should include:
-- Human clinical review
-- Clear limitations
-- Source-grounded responses
-- Escalation pathways
-- Uncertainty handling
-- Monitoring and evaluation
-- Clinical governance before deployment
+These are **future work items**, not completed features.
 
----
+## Relationship to broader DA Tech research
 
-## Tools & Technologies
+This repository represents an early healthcare RAG research direction. Separate DA Tech work addresses evidence verification and governed AI workflows; capabilities developed elsewhere are **not automatically part of this repository**.
 
-Update this list based on actual implementation:
-- Python
-- Google Colab
-- LLM / local model workflow
-- llama-cpp-python, if used
-- Vector retrieval or semantic search
-- Prompt engineering
-- Medical manual PDF sources
+For a separate public evidence-verification project, see [DA Tech RAG Verifier](https://github.com/David-Arrow-Technologies-LLC/rag-verifier). Review that repository's own documentation for its actual supported behavior and limitations.
 
----
+## Safety and limitations
 
-## Future Improvements
-
-- Add clear citation display for retrieved passages
-- Add evaluation dataset of clinical questions
-- Add groundedness and relevance scoring
-- Add hallucination checks
-- Add Streamlit interface
-- Add Docker setup
-- Add unit tests for retrieval pipeline
-- Add human-review workflow
-
----
+- This repository does not establish diagnostic accuracy, clinical benefit, regulatory clearance, or deployment readiness.
+- Language-model output may be incomplete, inaccurate, outdated, or misleading.
+- Retrieved passages do not guarantee a correct or safe answer.
+- Medical decisions require qualified professionals and appropriate clinical context.
+- Do not upload identifiable patient information or unlicensed medical reference material.
 
 ## Author
 
-Olanrewaju Onala, MBBS  
-Physician | Healthcare AI Consultant | Generative AI Practitioner
+**Olanrewaju Onala, MBBS**  
+Physician | Healthcare AI Research | Generative AI Engineering
+
+---
+
+*This project is for research and educational communication only and does not provide medical advice.*
